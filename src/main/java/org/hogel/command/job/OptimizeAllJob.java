@@ -2,7 +2,6 @@ package org.hogel.command.job;
 
 import com.google.inject.Inject;
 import org.hogel.bookscan.BookscanClient;
-import org.hogel.bookscan.BookscanDownloader;
 import org.hogel.bookscan.OptimizeOption;
 import org.hogel.bookscan.model.Book;
 import org.hogel.config.Config;
@@ -19,9 +18,6 @@ public class OptimizeAllJob extends AbstractJob {
 
     @Inject
     BookscanClient bookscanClient;
-
-    @Inject
-    BookscanDownloader downloader;
 
     @Override
     public void run() throws Exception {
@@ -43,12 +39,12 @@ public class OptimizeAllJob extends AbstractJob {
         long wait = config.getWait();
 
         for (Book book : books) {
+            LOG.info("Optimize: {}", book.getFilename());
             bookscanClient
                 .requestBookOptimize(book, option)
                 .timeout(config.getTimeout())
                 .get();
-//            Thread.sleep(wait);
-            break;
+            Thread.sleep(wait);
         }
     }
 }
