@@ -28,9 +28,12 @@ public class DownloadAllJob extends AbstractJob {
             .fetchBooks()
             .timeout(config.getTimeout())
             .get();
+
+        long wait = config.getWait();
         for (Book book : books) {
             book.createDownloadUrl();
             downloader.download(book);
+            Thread.sleep(wait);
         }
     }
 }

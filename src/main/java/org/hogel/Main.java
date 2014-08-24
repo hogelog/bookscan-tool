@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Main {
     private static final String DEFAULT_CONFIG_PATH = "config.yaml";
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {

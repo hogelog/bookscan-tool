@@ -37,7 +37,6 @@ public class BookscanDownloader {
         LOG.info("Start: downloading {}", book.getFilename());
 
         String downloadDirectory = config.getDownloadDirectory();
-        int wait = config.getWait();
 
         Path downloadDirectoryPath = Paths.get(downloadDirectory);
         if (Files.notExists(downloadDirectoryPath)) {
@@ -64,9 +63,6 @@ public class BookscanDownloader {
         LOG.info("Response: 200, downloading...");
         try (InputStream downloadStream = response.body().byteStream()) {
             Files.copy(downloadStream, downloadPath);
-            Thread.sleep(wait);
-        } catch (InterruptedException e) {
-            LOG.error(e.getMessage(), e);
         }
 
         LOG.info("Finish: downloading {}", book.getFilename());
