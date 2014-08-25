@@ -30,8 +30,6 @@ public class OptimizeAllJob extends AbstractJob {
         OptimizeOption option = new OptimizeOption();
         option.addFlag(OptimizeOption.Flag.COVER);
         option.addFlag(OptimizeOption.Flag.BOLD);
-        option.addFlag(OptimizeOption.Flag.KINDLE);
-        option.addFlag(OptimizeOption.Flag.DROPBOX);
         option.addFlag(OptimizeOption.Flag.WHITE);
 
         option.addType(OptimizeOption.Type.KINDLEP);
