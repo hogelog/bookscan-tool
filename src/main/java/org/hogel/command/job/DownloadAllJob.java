@@ -24,6 +24,7 @@ public class DownloadAllJob extends AbstractJob {
 
     @Override
     public void run() throws Exception {
+        LOG.info("Start: downloading books");
         List<Book> books = bookscanClient
             .fetchBooks()
             .timeout(config.getTimeout())
@@ -35,5 +36,6 @@ public class DownloadAllJob extends AbstractJob {
             downloader.download(book);
             Thread.sleep(wait);
         }
+        LOG.info("Finish: downloading books");
     }
 }
