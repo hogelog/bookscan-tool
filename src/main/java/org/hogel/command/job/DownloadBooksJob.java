@@ -27,7 +27,6 @@ public class DownloadBooksJob extends AbstractJob {
         LOG.info("Start: downloading books");
         List<Book> books = bookscanClient
             .fetchBooks()
-            .timeout(config.getTimeout())
             .get();
 
         long wait = config.getWait();

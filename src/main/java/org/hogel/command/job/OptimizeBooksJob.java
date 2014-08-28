@@ -29,12 +29,10 @@ public class OptimizeBooksJob extends AbstractJob {
 
         List<OptimizedBook> optimizedBooks = bookscanClient
             .fetchOptimizedBooks()
-            .timeout(config.getTimeout())
             .get();
 
         List<Book> books = bookscanClient
             .fetchBooks()
-            .timeout(config.getTimeout())
             .get();
 
         // TODO: load optimize option from config file
@@ -57,7 +55,6 @@ public class OptimizeBooksJob extends AbstractJob {
             LOG.info("Optimize: {}", book.getFilename());
             bookscanClient
                 .requestBookOptimize(book, option)
-                .timeout(config.getTimeout())
                 .get();
             Thread.sleep(wait);
         }
@@ -75,7 +72,7 @@ public class OptimizeBooksJob extends AbstractJob {
 
     private int countOptimizingBooks() {
         try {
-            return bookscanClient.fetchOptimizingBooks().timeout(config.getTimeout()).get().size();
+            return bookscanClient.fetchOptimizingBooks().get().size();
         } catch (BookscanException e) {
             LOG.error(e.getMessage(), e);
             return 0;

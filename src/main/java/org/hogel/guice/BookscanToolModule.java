@@ -26,6 +26,7 @@ public class BookscanToolModule implements Module {
 
     private BookscanClient createBookscanClient() {
         BookscanClient bookscanClient = new BookscanClient();
+        bookscanClient.setDefaultTimeout(config.getTimeout());
         try {
             String email = config.getEmail();
             String password = config.getPassword();
