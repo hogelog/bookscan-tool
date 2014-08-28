@@ -2,16 +2,14 @@ package org.hogel.command;
 
 import com.google.inject.Injector;
 import lombok.Getter;
-import org.hogel.command.job.AbstractJob;
-import org.hogel.command.job.DownloadAllJob;
-import org.hogel.command.job.Job;
-import org.hogel.command.job.OptimizeAllJob;
+import org.hogel.command.job.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public enum Command {
-    DOWNLOAD_ALL("download_all", DownloadAllJob.class),
-    OPTIMIZE_ALL("optimize_all", OptimizeAllJob.class),
+    DOWNLOAD_BOOKS("download_books", DownloadBooksJob.class),
+    OPTIMIZE_BOOKS("optimize_books", OptimizeBooksJob.class),
+    DOWNLOAD_OPTIMIZED_BOOKS("download_all_optimized_book", DownloadOptimizedBooksJob.class),
     ;
 
     private static final Logger LOG = LoggerFactory.getLogger(Command.class);

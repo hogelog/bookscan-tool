@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class DownloadAllJob extends AbstractJob {
-    private static final Logger LOG = LoggerFactory.getLogger(DownloadAllJob.class);
+public class DownloadBooksJob extends AbstractJob {
+    private static final Logger LOG = LoggerFactory.getLogger(DownloadBooksJob.class);
 
     @Inject
     Config config;
@@ -32,7 +32,6 @@ public class DownloadAllJob extends AbstractJob {
 
         long wait = config.getWait();
         for (Book book : books) {
-            book.createDownloadUrl();
             downloader.download(book);
             Thread.sleep(wait);
         }

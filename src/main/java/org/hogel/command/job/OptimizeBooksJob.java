@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class OptimizeAllJob extends AbstractJob {
-    private static final Logger LOG = LoggerFactory.getLogger(OptimizeAllJob.class);
+public class OptimizeBooksJob extends AbstractJob {
+    private static final Logger LOG = LoggerFactory.getLogger(OptimizeBooksJob.class);
 
     private static final int PARALLEL_TUNING_COUNT = 5;
 
