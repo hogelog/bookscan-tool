@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 public enum Command {
     DOWNLOAD_BOOKS("download_books", DownloadBooksJob.class),
     OPTIMIZE_BOOKS("optimize_books", OptimizeBooksJob.class),
-    DOWNLOAD_OPTIMIZED_BOOKS("download_all_optimized_book", DownloadOptimizedBooksJob.class),
+    DOWNLOAD_OPTIMIZED_BOOKS("download_optimized_books", DownloadOptimizedBooksJob.class),
     ;
 
     private static final Logger LOG = LoggerFactory.getLogger(Command.class);
