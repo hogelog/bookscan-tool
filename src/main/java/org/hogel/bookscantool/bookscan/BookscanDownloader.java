@@ -1,12 +1,13 @@
-package org.hogel.bookscan;
+package org.hogel.bookscantool.bookscan;
 
 import com.google.inject.Inject;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import org.hogel.bookscan.BookscanClient;
 import org.hogel.bookscan.model.Book;
 import org.hogel.bookscan.model.OptimizedBook;
-import org.hogel.config.Config;
+import org.hogel.bookscantool.config.BookscanToolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +24,7 @@ public class BookscanDownloader {
     private static final String USER_AGENT = "bookscan-tool-downloader";
 
     @Inject
-    Config config;
+    BookscanToolConfig config;
 
     @Inject
     BookscanClient bookscanClient;

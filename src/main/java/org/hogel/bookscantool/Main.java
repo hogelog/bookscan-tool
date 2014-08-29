@@ -1,12 +1,13 @@
-package org.hogel;
+package org.hogel.bookscantool;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
-import org.hogel.command.Command;
-import org.hogel.command.job.Job;
-import org.hogel.guice.BookscanToolModule;
+import org.hogel.bookscantool.command.Command;
+import org.hogel.bookscantool.command.job.Job;
+import org.hogel.bookscantool.guice.BookscanToolModule;
+import org.hogel.config.InvalidConfigException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +43,7 @@ public class Main {
         return parser.parse(args);
     }
 
-    private static Injector createInjector(String configPath) throws IOException {
+    private static Injector createInjector(String configPath) throws IOException, InvalidConfigException {
         return Guice.createInjector(new BookscanToolModule(Paths.get(configPath)));
     }
 

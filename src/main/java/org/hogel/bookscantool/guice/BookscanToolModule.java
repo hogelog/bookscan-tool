@@ -1,26 +1,27 @@
-package org.hogel.guice;
+package org.hogel.bookscantool.guice;
 
 import com.google.common.base.Strings;
 import com.google.inject.Binder;
 import com.google.inject.Module;
 import org.hogel.bookscan.BookscanClient;
 import org.hogel.bookscan.exception.BookscanException;
-import org.hogel.config.Config;
+import org.hogel.bookscantool.config.BookscanToolConfig;
+import org.hogel.config.InvalidConfigException;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class BookscanToolModule implements Module {
 
-    private final Config config;
+    private final BookscanToolConfig config;
 
-    public BookscanToolModule(Path configPath) throws IOException {
-        config = Config.loadConfig(configPath);
+    public BookscanToolModule(Path configPath) throws IOException, InvalidConfigException {
+        config = new BookscanToolConfig(configPath);
     }
 
     @Override
     public void configure(Binder binder) {
-        binder.bind(Config.class).toInstance(config);
+        binder.bind(BookscanToolConfig.class).toInstance(config);
         binder.bind(BookscanClient.class).toInstance(createBookscanClient());
     }
 

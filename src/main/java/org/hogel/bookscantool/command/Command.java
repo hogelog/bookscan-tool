@@ -1,8 +1,11 @@
-package org.hogel.command;
+package org.hogel.bookscantool.command;
 
 import com.google.inject.Injector;
 import lombok.Getter;
-import org.hogel.command.job.*;
+import org.hogel.bookscantool.command.job.DownloadBooksJob;
+import org.hogel.bookscantool.command.job.DownloadOptimizedBooksJob;
+import org.hogel.bookscantool.command.job.Job;
+import org.hogel.bookscantool.command.job.OptimizeBooksJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +23,7 @@ public enum Command {
     @Getter
     final Class<? extends Job> jobClass;
 
-    Command(String commandName, Class<? extends AbstractJob> jobClass) {
+    Command(String commandName, Class<? extends Job> jobClass) {
         this.commandName = commandName;
         this.jobClass = jobClass;
     }

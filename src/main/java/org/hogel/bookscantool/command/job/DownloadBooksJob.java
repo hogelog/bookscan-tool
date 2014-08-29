@@ -1,20 +1,20 @@
-package org.hogel.command.job;
+package org.hogel.bookscantool.command.job;
 
 import com.google.inject.Inject;
 import org.hogel.bookscan.BookscanClient;
-import org.hogel.bookscan.BookscanDownloader;
 import org.hogel.bookscan.model.Book;
-import org.hogel.config.Config;
+import org.hogel.bookscantool.bookscan.BookscanDownloader;
+import org.hogel.bookscantool.config.BookscanToolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class DownloadBooksJob extends AbstractJob {
+public class DownloadBooksJob implements Job {
     private static final Logger LOG = LoggerFactory.getLogger(DownloadBooksJob.class);
 
     @Inject
-    Config config;
+    BookscanToolConfig config;
 
     @Inject
     BookscanClient bookscanClient;
