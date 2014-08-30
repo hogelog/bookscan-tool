@@ -2,10 +2,7 @@ package org.hogel.bookscantool.command;
 
 import com.google.inject.Injector;
 import lombok.Getter;
-import org.hogel.bookscantool.command.job.DownloadBooksJob;
-import org.hogel.bookscantool.command.job.DownloadOptimizedBooksJob;
-import org.hogel.bookscantool.command.job.Job;
-import org.hogel.bookscantool.command.job.OptimizeBooksJob;
+import org.hogel.bookscantool.command.job.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +10,7 @@ public enum Command {
     DOWNLOAD_BOOKS("download_books", DownloadBooksJob.class),
     OPTIMIZE_BOOKS("optimize_books", OptimizeBooksJob.class),
     DOWNLOAD_OPTIMIZED_BOOKS("download_optimized_books", DownloadOptimizedBooksJob.class),
+    GLACIER_BACKUP("glacier_backup", GlacierBackupJob.class),
     ;
 
     private static final Logger LOG = LoggerFactory.getLogger(Command.class);

@@ -30,6 +30,19 @@ public class BookscanToolConfig extends Config {
     @StringDefaultValue("downloads")
     String downloadDirectory;
 
+    @Attribute(name = "aws_access_key")
+    String awsAccessKey;
+
+    @Attribute(name = "aws_secret_key")
+    String awsSecretKey;
+
+    @Attribute(name = "glacier_endpoint")
+    String glacierEndpoint;
+
+    @Attribute(name = "glacier_vault")
+    String glacierVault;
+
+
     public BookscanToolConfig(Path path) throws IOException, InvalidConfigException {
         super(path);
     }
