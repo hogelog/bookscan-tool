@@ -1,7 +1,7 @@
 package org.hogel.bookscantool.config;
 
 import lombok.Data;
-import org.hogel.config.AbstractConfig;
+import org.hogel.config.Config;
 import org.hogel.config.InvalidConfigException;
 import org.hogel.config.annotation.Attribute;
 import org.hogel.config.annotation.IntDefaultValue;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Data
-public class BookscanToolConfig extends AbstractConfig {
+public class BookscanToolConfig extends Config {
     @Attribute
     @IntDefaultValue(30_000)
     int timeout;
